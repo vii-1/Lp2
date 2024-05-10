@@ -1,0 +1,47 @@
+public class GreatestOf3 {
+	public Integer xvalue {get;set;}
+    public Integer yvalue {get;set;}
+    public Integer zvalue {get;set;}
+    public Integer result {get;set;}
+    
+    public pagereference greatest() {
+        
+        result = xvalue;
+        
+        if(yvalue > result){
+            result = yvalue;
+        }
+        if(zvalue > result){
+            result = zvalue;
+        }
+        return null;
+    }
+}
+
+<apex:page controller="GreatestOf3" sidebar="false" >
+    <apex:form >
+        <apex:pageBlock title="GreatestOf3">
+            <apex:pageBlockSection columns="1" title="Enter three numbers" collapsible="false">          
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Enter X value </apex:outputLabel>
+                <apex:inputText value="{!xvalue}"/>                
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Enter Y value </apex:outputLabel>
+                <apex:inputText value="{!yvalue}"/>    
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Enter Z value </apex:outputLabel>
+                <apex:inputText value="{!zvalue}"/>    
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Result </apex:outputLabel>
+                <apex:inputText value="{!result}"/>    
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:commandButton value="find" action="{!greatest}"/>
+            </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+       </apex:pageBlock>
+    </apex:form>  
+</apex:page>
